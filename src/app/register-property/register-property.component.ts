@@ -4,6 +4,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PropertyService } from '../services/property.service';
 import { PasswordConfirmationValidatorService } from '../shared/custom-validators/password-confirmation-validator.service';
+import {  citydto } from '../_interfaces/property/cityDto';
 import { PropertyRegistrationDto } from '../_interfaces/property/propertyForRegistrationDto.model';
 
 @Component({
@@ -15,22 +16,27 @@ export class RegisterPropertyComponent {
   registerPropertyForm!: FormGroup;
   public errorMessage: string = '';
   public showError: boolean = false;
-
-  constructor(private propService: PropertyService,private router: Router) { }
+  cities!: citydto[];  
+  constructor(private propService: PropertyService,private router: Router) { 
+    this.getCititesList();
+  }
 
   ngOnInit(): void {
     this.registerPropertyForm = new FormGroup({
       description: new FormControl(''),
-      title: new FormControl(''),
-      propertyType: new FormControl(''),
-      postedOn: new FormControl('', [Validators.required]),
-      propertyCost: new FormControl(''),
-      costTobeDisplayed:new FormControl(''),
+      builtup: new FormControl(''),
+      houseType: new FormControl(''),
+      deposit: new FormControl('', [Validators.required]),
+      postedOn: new FormControl(''),
+      propertyCost:new FormControl(''),
+      downpayment: new FormControl(''),
+      availableFrom: new FormControl(''),
       propImgUrl: new FormControl(''),
-      FkCityName: new FormControl(''),
-      propertyConfig: new FormControl(''),
-      isActiveProperties : new FormControl(''),
-      availableFrom:new FormControl('')
+      furnished : new FormControl(''),
+      preferredCustomer:new FormControl(''),
+      houseOwnerName:new FormControl(''),
+      cityName:new FormControl(''),
+      ownerContact:new FormControl(''),
 
     });
   }
@@ -41,27 +47,41 @@ export class RegisterPropertyComponent {
 
     const property: PropertyRegistrationDto = {
       description: formValues.description,
-      title: formValues.title,
-      propertyType: formValues.propertyType,
+     
+      availableFrom: formValues.availableFrom,
       postedOn: formValues.postedOn,
       propertyCost: formValues.propertyCost,
-      costTobeDisplayed: formValues.costTobeDisplayed,
+      builtup: formValues.builtup,
       propImgUrl:formValues.propImgUrl,
-      FkCityName: formValues.FkCityName,
-      propertyConfig: formValues.propertyConfig,
-      isActiveProperties: formValues.isActiveProperties,
-      availableFrom:formValues.availableFrom
-
+      cityName: formValues.cityName,
+      deposit: formValues.deposit,
+      downpayment: formValues.downpayment,
+      furnished:formValues.furnished,
+      houseOwnerName:formValues.houseOwnerName,
+      houseType:formValues.houseType,
+      ownerContact:formValues.ownerContact,
+      preferredCustomer:formValues.preferredCustomer,
+    
     };
 
     this.propService.registerProperty("api/property/CreateProperty", property)
     .subscribe({
      // next: (_: any) => console.log("Successful registration"),
-      next: (_) => this.router.navigate(["/authentication/home"]),
+      next: (_) => this.router.navigate(["/home"]),
       error: (err: HttpErrorResponse) => {
         this.errorMessage = err.message;
         this.showError = true;
       }
     })
+  }
+  get f(){
+    return this.registerPropertyForm.controls;
+  }
+
+  getCititesList() {
+    this.propService.GetAllCities("api/property/GetCity").subscribe({
+      next: (result: any) => (this.cities = result),
+      error: (err: HttpErrorResponse) => console.log(err),
+    });
   }
 }

@@ -64,11 +64,13 @@ export class LoginComponent implements OnInit {
       next: (res: AuthResponseDto) => {
         localStorage.setItem('token', res.token);
         this.authService.sendAuthStateChangeNotification(res.isAuthSuccessful);
-        this.router.navigate([this.returnUrl]);
+        this.router.navigateByUrl('/home');
       },
       error: (err: HttpErrorResponse) => {
         this.errorMessage = err.message;
         this.showError = true;
+       // this.router.navigate([this.returnUrl]);
+        this.router.navigateByUrl("/forbidden");
       },
     });
   };
@@ -98,6 +100,8 @@ export class LoginComponent implements OnInit {
           this.errorMessage = err.message;
           this.showError = true;
           this.authService.signOutExternal();
+          this.router.navigate([this.returnUrl]);
+          this.router.navigateByUrl("/forbidden");
         },
       });
   }

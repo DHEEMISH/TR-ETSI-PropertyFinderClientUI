@@ -8,7 +8,7 @@ import {
   HTTP_INTERCEPTORS,
 } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { JwtModule } from '@auth0/angular-jwt';
@@ -18,6 +18,12 @@ import { MenuComponent } from './menu/menu.component';
 import { ErrorHandlerService } from './services/error-handler.service';
 import { SocialLoginModule } from '@abacritt/angularx-social-login';
 import { RegisterPropertyComponent } from './register-property/register-property.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NotFoundComponent } from 'src/error-pages/not-found/not-found.component';
+import { ForbiddenComponent } from 'src/error-pages/forbidden/forbidden.component';
+import { AuthGuard } from './guards/auth.guard';
+import { MatCardModule } from '@angular/material/card';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 export function tokenGetter() {
   return localStorage.getItem('token');
 }
@@ -28,7 +34,9 @@ export function tokenGetter() {
     BrowserModule,
     ReactiveFormsModule,
     HttpClientModule,
-
+    FormsModule,
+    BrowserAnimationsModule,
+    MatCardModule,
     RouterModule.forRoot([
       { path: 'home', component: HomeComponent },
       {
@@ -36,17 +44,20 @@ export function tokenGetter() {
         loadChildren: () =>
           import('./authentication/authentication.module').then(
             (m) => m.AuthenticationModule
-          ),
+          )
       },
+      { path: '404', component : NotFoundComponent},
+      { path: 'forbidden', component: ForbiddenComponent },
       { path: '', redirectTo: '/home', pathMatch: 'full' },
     ]),
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
-        allowedDomains: ['localhost:5255'],
+        allowedDomains: ['https://tretsifindpropertyapi.azurewebsites.net'],
         disallowedRoutes: [],
       },
     }),
+    NgbModule,
   ],
   providers: [
     {

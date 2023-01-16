@@ -7,6 +7,7 @@ import { RegisterUserComponent } from './register-user/register-user.component';
 import { LoginComponent } from './login/login.component';
 import { SocialLoginModule } from '@abacritt/angularx-social-login';
 import { RegisterPropertyComponent } from '../register-property/register-property.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [

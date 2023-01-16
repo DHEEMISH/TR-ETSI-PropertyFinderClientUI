@@ -39,7 +39,7 @@ export class ErrorHandlerService implements HttpInterceptor {
   private handleForbidden = (error: HttpErrorResponse) => {
     this.router.navigate(["/forbidden"], { queryParams: { returnUrl: this.router.url }});
     
-    return "Forbidden";
+    return error.message;
   }
 
   private handleNotFound = (error: HttpErrorResponse): string => {
@@ -48,7 +48,7 @@ export class ErrorHandlerService implements HttpInterceptor {
   }
   
   private handleUnauthorized = (error: HttpErrorResponse) => {
-    if(this.router.url.startsWith('/authentication/login')) {
+    if(this.router.url.startsWith('/forbidden')) {
       return error.error.errorMessage;
     }
     else {

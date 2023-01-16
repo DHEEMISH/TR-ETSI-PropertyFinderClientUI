@@ -1,4 +1,4 @@
-
+<!-- 
 
     <div *ngIf="showError" class="alert alert-danger" role="alert">
       <span [innerHTML]="errorMessage"></span>
@@ -37,71 +37,63 @@
 </div>
   <div class="hint-text">Already have an account? <a href="#" [routerLink]="['/authentication/login']">Login here</a></div>
 </form>
+ -->
+ <section class="vh-100 bg-image">
+ <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+   <div class="container h-100">
+     <div class="row d-flex justify-content-center align-items-center h-100">
+       <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+         <div class="card" style="border-radius: 15px;">
+           <div class="card-body p-5">
+             <h2 class="text-uppercase text-center mb-5">Create an account</h2>
 
+             <form [formGroup]="registerForm" autocomplete="off" novalidate (ngSubmit)="registerUser(registerForm.value)">
 
+               <div class="form-outline mb-4">
+                 <input type="text" id="firstName" class="form-control form-control-lg" placeholder="First Name" formControlName="firstName" />
+                 <label class="form-label" for="firstName">First Name</label>
+               </div>
 
-<!-- <div class="card">
-  <div class="card-body">
-    <h1 class="card-title">Register</h1>
+               <div class="form-outline mb-4">
+                 <input type="text" id="lastName" class="form-control form-control-lg" formControlName="lastName"  placeholder="Last Name" id="lastName"/>
+                 <label class="form-label" for="lastName">Last Name</label>
+               </div>
 
-    <div *ngIf="showError" class="alert alert-danger" role="alert">
-      <span [innerHTML]="errorMessage"></span>
-    </div>
-      <form [formGroup]="registerForm" autocomplete="off" novalidate (ngSubmit)="registerUser(registerForm.value)">
-          <div class="mb-3 row">
-              <label for="userName" class="col-form-label col-sm-2">User Name:</label>
-              <div class="col-md-5">
-                  <input type="text" id="userName" formControlName="userName" class="form-control" />
-              </div>
-          </div>
+               <div class="form-outline mb-4">
+                 <input type="email" id="email" formControlName="email"   placeholder="Email Address" class="form-control form-control-lg" />
+                 <label class="form-label" for="email">Email Address</label>
+               </div>
 
-          <div class="mb-3 row">
-              <label for="firstName" class="col-form-label col-sm-2">First Name:</label>
-              <div class="col-md-5">
-                  <input type="text" id="firstName" formControlName="firstName" class="form-control" />
+               <div class="form-outline mb-4">
+                 <input type="password" id="password" formControlName="password" id="userpassword"  placeholder="Password" class="form-control form-control-lg" />
+                 <label class="form-label" for="password">Password</label>
+               </div>
+               <div class="form-outline mb-4">
+                <input type="password" id="confirmPassword" formControlName="confirmPassword"  placeholder="Confirm Password" class="form-control form-control-lg" />
+                <label class="form-label" for="confirmPassword">Confirm Password</label>
               </div>
-          </div>
-          <div class="mb-3 row">
-              <label for="lastName" class="col-form-label col-sm-2">Last Name:</label>
-              <div class="col-md-5">
-                  <input type="text" id="lastName" formControlName="lastName" class="form-control" />
-              </div>
-          </div>
-          <div class="mb-3 row">
-              <label for="email" class="col-form-label col-sm-2">Email:</label>
-              <div class="col-md-5">
-                  <input type="email" id="email" formControlName="email" class="form-control" />
-              </div>
-            <div class="col-md-5">
-                  <em *ngIf="validateControl('email') && hasError('email', 'email')">Please provide a valid email</em>
-                  <em *ngIf="validateControl('email') && hasError('email', 'required')">Email is required</em>
-              </div> -->
-          <!-- </div>
-          <div class="mb-3 row">
-              <label for="password" class="col-form-label col-sm-2">Password:</label>
-              <div class="col-md-5">
-                  <input type="password" id="password" formControlName="password" class="form-control" />
-              </div>
-             <div class="col-md-5">
-                  <em *ngIf="validateControl('password') && hasError('password', 'required')">Password is required</em>
-              </div> -->
-          <!-- </div>
-          <div class="form-group row">
-              <label for="confirm" class="col-form-label col-sm-2">Confirm Password:</label>
-                  <div class="col-md-5">
-                      <input type="password" id="confirm" formControlName="confirm" class="form-control" />
-                  </div>
-                  <div class="col-md-5">
-                      <em *ngIf="validateControl('confirm') && hasError('confirm', 'required')">Confirmation is required</em>
-                      <em *ngIf="hasError('confirm', 'mustMatch')">Passwords must match</em>
-                  </div> -->
-          <!-- </div> -->
-          <!-- <br>
-          <div class="mb-3 row">
-              <div class="col-md-1">          
-                  <button type="submit" class="btn btn-info" [disabled]="!registerForm.valid">Register</button>
-              </div>
-          </div>
-      </form>
-  </div>
-</div>  -->
+
+               <div class="form-check d-flex justify-content-center mb-5">
+                 <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3cg" />
+                 <label class="form-check-label" for="form2Example3g">
+                   I agree all statements in <a href="#!" class="text-body"><u>Terms of service</u></a>
+                 </label>
+               </div>
+
+               <div class="d-flex justify-content-center">
+                 <button type="submit"
+                   class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
+               </div>
+
+               <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="#!" [routerLink]="['/authentication/login']"
+                   class="fw-bold text-body"><u>Login here</u></a></p>
+
+             </form>
+
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
+</section>

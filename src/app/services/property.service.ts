@@ -6,12 +6,12 @@ import { environment } from '../environments/environment.prod';
 import { RegistrationResponseDto } from '../_interfaces/response/registrationResponseDto.model';
 import { Router } from '@angular/router';
 import { PropertyRegistrationDto } from '../_interfaces/property/propertyForRegistrationDto.model';
+import { citydto } from '../_interfaces/property/cityDto';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PropertyService {
-
   private _isPropertyCreatedSubject = new BehaviorSubject<boolean>(false);
   isisPropertyCreated: Observable<boolean> =
     this._isPropertyCreatedSubject.asObservable();
@@ -19,9 +19,8 @@ export class PropertyService {
   constructor(
     private http: HttpClient,
     private envUrl: EnvironmentUrlService,
-    private router: Router) {
-   
-  }
+    private router: Router
+  ) {}
 
   updateUserAuthenticationStatus() {
     return this.http
@@ -50,5 +49,9 @@ export class PropertyService {
     return `${envAddress}/${route}`;
   };
 
-
+  public GetAllCities = (route: string) => {
+    return this.http.get<citydto>(
+      this.createCompleteRoute(route, this.envUrl.urlAddress)
+    );
+  };
 }

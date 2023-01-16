@@ -1,4 +1,4 @@
-<form class="form-inline my-2 my-lg-0">
+<!-- <form class="form-inline my-2 my-lg-0">
   <ul *ngIf='!isUserAuthenticated' class="navbar-nav mr-auto mt-2 mt-lg-0">
     <li class="nav-item">
       <a class="nav-link"[routerLink]="['/authentication/login']" routerLinkActive="active" 
@@ -11,19 +11,39 @@
   </ul>
   <ul *ngIf='isUserAuthenticated' class="navbar-nav mr-auto mt-2 mt-lg-0">
     <li class="nav-item">
-      <button class="btn btn-link" style="color: #ffffff80;">Logout</button>
+      <button class="btn btn-link" style="color: #ffffff80;" (click)="logout()">Logout</button>
     </li>
-  </ul>
-  <ul *ngIf='isUserAuthenticated' class="navbar-nav mr-auto mt-2 mt-lg-0">
-    <li class="nav-item">
-      <a class="nav-link"[routerLink]="['/authentication/registerPoperty']" routerLinkActive="active" 
+    <a class="nav-link"[routerLink]="['/authentication/registerPoperty']" routerLinkActive="active" 
         [routerLinkActiveOptions]="{exact: true}">Register New Property</a>
-    </li>
   </ul>
 
-  <div *ngIf="socialAuthService.authState | async as socialUser">
-    <p>Hello User--> {{socialUser.name}}!</p>
-    <p>Logged in email--> {{socialUser.email}}</p>
-
+</form> -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Find House</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div *ngIf='!isUserAuthenticated' class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/authentication/login']" routerLinkActive="active"
+          [routerLinkActiveOptions]="{exact: true}">Login</a>
+      </li>
+    </ul>
   </div>
-</form>
+  <div>
+    <ul *ngIf='isUserAuthenticated' class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/authentication/registerPoperty']" routerLinkActive="active"
+          [routerLinkActiveOptions]="{exact: true}">Register</a>
+      </li>
+      <li class="nav-item">
+        <button class="btn btn-link" style="color: #0e020280;" (click)="logout()" [routerLink]="['/authentication/login'] " routerLinkActive="active"  [routerLinkActiveOptions]="{exact: true}" >Logout</button>
+      </li>
+    </ul>
+  </div>
+</nav>

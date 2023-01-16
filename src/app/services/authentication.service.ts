@@ -21,20 +21,21 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class AuthenticationService {
-  private authChangeSub = new Subject<boolean>();
+  private authChangeSub = new BehaviorSubject<boolean>(false);
   private extAuthChangeSub = new Subject<SocialUser>();
   public authChanged = this.authChangeSub.asObservable();
   public extAuthChanged = this.extAuthChangeSub.asObservable();
   public isExternalAuth: boolean = false;
   private _isUserAuthenticatedSubject = new BehaviorSubject<boolean>(false);
-  isUserAuthenticated: Observable<boolean> =
+  $isUserAuthenticated: Observable<boolean> =
     this._isUserAuthenticatedSubject.asObservable();
 
   constructor(
     private http: HttpClient,
     private envUrl: EnvironmentUrlService,
     private router: Router,
-    private externalAuthService: SocialAuthService
+    private externalAuthService: SocialAuthService,
+    private jwtHelper: JwtHelperService
   ) {
     this.externalAuthService.authState.subscribe((user: any) => {
       console.log(user);
@@ -82,6 +83,12 @@ export class AuthenticationService {
   public sendAuthStateChangeNotification = (isAuthenticated: boolean) => {
     this.authChangeSub.next(isAuthenticated);
   };
+
+  public isUserAuthenticated = ()=> {
+    const token = localStorage.getItem("token");
+ 
+    return token && !this.jwtHelper.isTokenExpired(token);
+  }
 
   public logout = () => {
     localStorage.removeItem('token');

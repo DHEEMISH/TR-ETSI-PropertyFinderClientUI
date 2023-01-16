@@ -1,60 +1,201 @@
+<section class="vh-100 gradient-custom">
+  <div class="container py-5 h-100">
+    <div class="row justify-content-center align-items-center h-100">
+      <div class="col-12 col-lg-9 col-xl-7">
+        <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+          <div class="card-body p-4 p-md-5">
+            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Add New Property </h3>
+            <form [formGroup]="registerPropertyForm" autocomplete="off" novalidate
+              (ngSubmit)="registerProperty(registerPropertyForm.value)">
+
+              <div class="row">
+                <div class="col-md-6 mb-4">
+
+                  <div class="form-outline">
+                    <input type="text" id="description" class="form-control form-control-lg"
+                      formControlName="description" placeholder="Property Description" id="description" />
+
+                    <label class="form-label" for="description">Description</label>
+                  </div>
+
+                </div>
+                <div class="col-md-6 mb-4">
+
+                  <div class="form-outline">
+                    <input type="text" id="availableFrom" class="form-control form-control-lg"
+                      formControlName="availableFrom" placeholder="Available From" id="availableFrom" />
+                    <label class="form-label" for="availableFrom">Available From</label>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-4 d-flex align-items-center">
+
+                  <div class="form-outline datepicker w-100">
+                    <input type="text" class="form-control form-control-lg" id="postedOn" formControlName="postedOn"
+                      placeholder="Posted On" required="required" id="postedOn" />
+                    <label for="postedOn" class="form-label">Posted On</label>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4 d-flex align-items-center">
+
+                  <div class="form-outline datepicker w-100">
+                    <input type="text" class="form-control form-control-lg" id="propertyCost"
+                      formControlName="propertyCost" placeholder="Property Cost" required="required"
+                      id="propertyCost" />
+                    <label for="propertyCost" class="form-label">Property Cost</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-4 d-flex align-items-center">
+
+                  <div class="form-outline datepicker w-100">
+                    <input type="text" class="form-control form-control-lg" id="builtup" formControlName="builtup"
+                      placeholder="Built up" required="required" id="builtup" />
+                    <label for="builtup" class="form-label">Built up</label>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4 d-flex align-items-center">
+
+                  <div class="form-outline datepicker w-100">
+                    <input type="text" class="form-control form-control-lg" id="propImgUrl" formControlName="propImgUrl"
+                      placeholder="Property Image" required="required" id="propImgUrl" />
+                    <label for="propImgUrl" class="form-label">Property Image</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-4 d-flex align-items-center">
+
+                  <div class="form-outline datepicker w-100">
+                    <input type="text" class="form-control form-control-lg"  formControlName="deposit"
+                      placeholder="Deposit" required="required" id="deposit" />
+                    <label for="deposit" class="form-label">Deposit</label>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4 d-flex align-items-center">
+
+                  <div class="form-outline datepicker w-100">
+                    <input type="text" class="form-control form-control-lg" id="downpayment"
+                      formControlName="downpayment" placeholder="Down payment" required="required" id="downpayment" />
+                    <label for="downpayment" class="form-label">Down payment</label>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+
+                <div class="col-md-6 mb-4 d-flex align-items-center">
+
+                  <div class="form-outline datepicker w-100">
+                    <input type="text" class="form-control form-control-lg" id="downpayment"
+                      formControlName="houseOwnerName" placeholder="Property Owner Name" required="required"
+                      id="houseOwnerName" />
+                    <label for="downpayment" class="form-label">Property Owner Name</label>
+                  </div>
+                </div>
+
+                <div class="col-md-6 mb-4 d-flex align-items-center">
+
+                  <div class="form-outline datepicker w-100">
+                    <input type="text" class="form-control form-control-lg" id="ownerContact"
+                      formControlName="ownerContact" placeholder="Property Owner Contact" required="required" />
+                    <label for="ownerContact" class="form-label">Property Owner Contact</label>
+                  </div>
+                </div>
+
+              </div>
+              <div class="row">
+                <div class="col-md-6 mb-4 d-flex align-items-center">
+
+                  <div class="form-outline datepicker w-100">
+                    <input type="text" class="form-control form-control-lg" id="houseType"
+                      formControlName="houseOwnerName" placeholder="House Type" required="required" id="houseType" />
+                    <label for="houseType" class="form-label">House Type</label>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4">
+
+                  <h4 class="mb-2 pb-1">Furnished </h4>
+
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio"   formControlName="furnished" name="inlineRadioOptions" id="furnishedyes"
+                      value="yes" checked  />
+                    <label class="form-check-label" for="furniashedyes">Yes</label>
+                  </div>
+
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" formControlName="furnished" name="inlineRadioOptions" id="furniashedno"
+                      value="no" />
+                    <label class="form-check-label" for="furniashedno">No</label>
+                  </div>
 
 
-    <div *ngIf="showError" class="alert alert-danger" role="alert">
-        <span [innerHTML]="errorMessage"></span>
-      </div>
-      <form [formGroup]="registerPropertyForm" autocomplete="off" novalidate (ngSubmit)="registerProperty(registerPropertyForm.value)">
-    <div class="form-group">
-      <fieldset>
-        <label class="form-label" for="txtFirstName">Description</label>
-        <input class="form-control" input type="text" formControlName="description" placeholder="Property Description" required="required" id="description" >
-      </fieldset>
-    </div>
-  
-    <div class="form-group has-success">
-      <label class="form-label mt-4" for="txtLastName">Title</label>
-      <input type="text" class="form-control" formControlName="title"  placeholder="Title" id="title"  >
-    </div>
-  
-    <div class="form-group has-danger">
-      <label class="form-label mt-4" for="txtEmail">Property Type</label>
-      <input type="text" class="form-control" formControlName="propertyType"   placeholder="Property Type" required="required" id="propertyType">
-    </div>
-  
-    <div class="form-group">
-      <label class="form-label mt-4" for="txtPassword">Posted On</label>
-      <input type="password" class="form-control" formControlName="postedOn"   placeholder="Posted On" required="required"  id="postedOn" >
-    </div>
-  
-    <div class="form-group">
-      <label class="form-label mt-4" for="txtConfirmPassword">Property Cost</label>
-      <input type="text" class="form-control" formControlName="propertyCost"  placeholder="Property Cost" required="required" id="propertyCost" >
-    </div>
-    <div class="form-group">
-        <label class="form-label mt-4" for="txtConfirmPassword">Cost To be Displayed</label>
-        <input type="checkbox" class="form-control" formControlName="costTobeDisplayed"  id="costTobeDisplayed" >
-      </div>
-      <div class="form-group">
-        <label class="form-label mt-4" for="txtConfirmPassword">Available From</label>
-        <input type="text" class="form-control" formControlName="availableFrom"  placeholder="available From" required="required" id="availableFrom" >
-      </div>
-      <div class="form-group">
-        <label class="form-label mt-4" for="txtConfirmPassword">Upload Property Image </label>
-        <input type="text" class="form-control" formControlName="propImgUrl"   required="required" id="propImgUrl" >
-      </div>
-      <div class="form-group">
-        <label class="form-label mt-4" for="FkCityName">City Name</label>
-        <input type="text" class="form-control" formControlName="FkCityName"  placeholder="City Name" required="required" id="FkCityName" >
-      </div>
-      <div class="form-group">
-        <label class="form-label mt-4" for="txtConfirmPassword">Property Configuration</label>
-        <input type="text" class="form-control" formControlName="propertyConfig"  placeholder="Property Configuration" required="required" id="propertyConfig" >
-      </div>
-  
-      <div class="mb-3 row">
-        <div class="col-md-1">          
-            <button type="submit" class="btn btn-info" >Register</button>
+                </div>
+              </div>
+
+              <div class="row">
+                <h4 class="mb-2 pb-1">Preferred City: </h4>
+                <div class="col-md-6 mb-4 d-flex align-items-center">  
+                  
+                  <select class="select form-control-lg" required name="Cities">  
+                      <option value="undefined">Select City</option>  
+                      <option *ngFor="let city of cities"  
+                              [ngValue]="city">  
+                          {{city.cityName}}  
+                      </option>  
+                  </select>  
+                </div>
+                <!-- <div class="col-md-6 mb-4 d-flex align-items-center">
+
+                  <select class="select form-control-lg">
+                    <option value="1" disabled>Select City</option>
+                    <option value="2">Pune</option>
+                    <option value="3">Hydrabad</option>
+                    <option value="4">Banglore</option>
+                  </select>
+
+                </div> -->
+                <div class="col-md-6 mb-4">
+
+                  <h4 class="mb-2 pb-1">Preferred Customer: </h4>
+
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="family"
+                      value="family" checked />
+                    <label class="form-check-label" for="family">Family</label>
+                  </div>
+
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="bachelor"
+                      value="bachelor" />
+                    <label class="form-check-label" for="bachelor">Bachelor</label>
+                  </div>
+
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="any"
+                      value="any" />
+                    <label class="form-check-label" for="any">Any</label>
+                  </div>
+
+
+                </div>
+              </div>
+
+
+
+              <div class="mt-4 pt-2">
+                <input class="btn btn-primary btn-lg" type="submit" value="Submit" [disabled]="!registerPropertyForm.valid"/>
+              </div>
+
+            </form>
+          </div>
         </div>
+      </div>
     </div>
-  
-  
+  </div>
+</section>

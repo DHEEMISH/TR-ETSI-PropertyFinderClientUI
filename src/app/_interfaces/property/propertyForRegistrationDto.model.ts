@@ -1,13 +1,16 @@
 export interface PropertyRegistrationDto {
     description: string;
-    title: string;
-    propertyType: string;
-    postedOn: string;
-    propertyCost: string;
-    costTobeDisplayed: boolean;
+    builtup: string;
+    houseType: string;
+    deposit: number;
+    postedOn: Date;
+    propertyCost: number;
+    downpayment:number;
     availableFrom:Date;
     propImgUrl:string;
-    FkCityName:string;
-    isActiveProperties:boolean;
-    propertyConfig: number;
+    furnished:boolean;
+    preferredCustomer: string;
+    ownerContact:number;
+    cityName:string;
+    houseOwnerName: string;
 }
