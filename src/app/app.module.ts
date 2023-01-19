@@ -24,21 +24,38 @@ import { ForbiddenComponent } from 'src/error-pages/forbidden/forbidden.componen
 import { AuthGuard } from './guards/auth.guard';
 import { MatCardModule } from '@angular/material/card';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatMenuModule} from '@angular/material/menu';
+import { SearchBarComponent } from './search-bar/search-bar.component';
+import { HouseListComponent } from './house-list/house-list.component';
+import { HouseDetailsComponent } from './house-details/house-details.component';
+import {MatIconModule} from '@angular/material/icon';
+import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+import { LandingPageComponent } from './landing-page/landing-page.component';
+import {MatButtonModule} from '@angular/material/button';
 export function tokenGetter() {
   return localStorage.getItem('token');
 }
 @NgModule({
-  declarations: [AppComponent, MenuComponent],
+  declarations: [AppComponent, MenuComponent, HomeComponent, SearchBarComponent, HouseListComponent, HouseDetailsComponent, LandingPageComponent],
   bootstrap: [AppComponent],
   imports: [
     BrowserModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatIconModule,
+    MatInputModule,
+    MatButtonModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatSelectModule,
     FormsModule,
     BrowserAnimationsModule,
     MatCardModule,
     RouterModule.forRoot([
       { path: 'home', component: HomeComponent },
+      { path: 'landing', component: LandingPageComponent},
       {
         path: 'authentication',
         loadChildren: () =>
@@ -48,7 +65,7 @@ export function tokenGetter() {
       },
       { path: '404', component : NotFoundComponent},
       { path: 'forbidden', component: ForbiddenComponent },
-      { path: '', redirectTo: '/home', pathMatch: 'full' },
+      { path: '', redirectTo: '/landing', pathMatch: 'full' },
     ]),
     JwtModule.forRoot({
       config: {

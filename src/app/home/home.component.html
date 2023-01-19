@@ -1,1 +1,4 @@
-<p class="homeText">{{homeText}}</p> 
+<app-menu></app-menu>
+<app-search-bar (emitter)="send($event)"></app-search-bar>
+<app-house-list class="house-details" [selectedCities]="cities">
+</app-house-list>

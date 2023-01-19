@@ -1,0 +1,104 @@
+.example-card {
+    padding: 10px;
+  }
+
+  .house-header{
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+  }
+
+.header-details{
+  width: 95%;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.card-title{
+  font-weight: 700;
+  font-size: 20px;
+  color: darkslategrey;
+}
+
+.card-subtitle{
+  padding-top: 5px;
+  font-size: 12px;
+  color: darkolivegreen;
+}
+
+.house-icon{
+  width: 5%;
+}
+
+.house-cost{
+  display: flex;
+  flex-direction: row;
+  flex-flow: space-evenly;
+  border: 0.5px ridge lightgray;
+  border-radius: 2px;
+  padding: 15px;
+}
+
+.house-cost-box {
+  text-align: center;
+  width: 33.33%;
+  
+}
+
+.house-cost-value{
+  margin: 0px;
+  font-size: 15px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color: darkslategrey;
+}
+.house-cost-label{
+  margin: 0px;
+  font-size: 10px;
+  color: darkolivegreen;
+}
+
+.box-border{
+  border-right: 0.5px solid lightgray;
+}
+  
+
+
+  .third-block{
+    display: flex;
+    flex-direction: row;
+    flex-flow: space-evenly;
+  }
+
+  .third-details{
+    width: 50%;
+    display: flex;
+    flex-flow: column;
+  }
+
+  .third-flat-details{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 15px;
+    border: 0.5px ridge lightgray;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
+
+  .third-flat-details-block{
+    width: 50%;
+  }
+
+  .block-label{
+    border-right: 0.5px ridge lightgray;
+    
+  }
+
+  .block-value{
+    padding-left: 5px;
+    font-weight: 700;
+  }
+
+  .house-img {
+    max-width: 100%;
+    max-height: 320px;
+    padding: 2px 2px 0px 2px;
+  }

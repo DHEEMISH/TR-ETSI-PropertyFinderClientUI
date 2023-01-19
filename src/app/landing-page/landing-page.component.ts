@@ -1,14 +1,14 @@
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../services/authentication.service';
 import { SocialAuthService } from '@abacritt/angularx-social-login';
 
 @Component({
-  selector: 'app-menu',
-  templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.css']
+  selector: 'app-landing-page',
+  templateUrl: './landing-page.component.html',
+  styleUrls: ['./landing-page.component.css']
 })
-export class MenuComponent implements OnInit {
+export class LandingPageComponent {
   isCollapsed: boolean = false;
   isUserAuthenticated: boolean = false;
   

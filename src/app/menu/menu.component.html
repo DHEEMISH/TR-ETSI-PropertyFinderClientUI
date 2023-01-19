@@ -18,7 +18,7 @@
   </ul>
 
 </form> -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">Find House</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
     aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,4 +46,24 @@
       </li>
     </ul>
   </div>
-</nav>
+</nav> -->
+
+<mat-toolbar color="primary">
+  <span class="fill-remaining-space">
+  </span>
+  <span class="fill-remaining-space title">House Search App
+  </span>
+  <span class="fill-remaining-space user-details">
+    <div>
+      <ul *ngIf='isUserAuthenticated'>
+        <li>
+          <a [routerLink]="['/authentication/registerPoperty']" routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: true}">Register</a>
+        </li>
+        <li>
+          <button class="btn btn-link" style="color: #0e020280;" (click)="logout()" [routerLink]="['/authentication/login'] " routerLinkActive="active"  [routerLinkActiveOptions]="{exact: true}" >Logout</button>
+        </li>
+      </ul>
+    </div>
+  </span>
+</mat-toolbar>

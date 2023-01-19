@@ -3,3 +3,27 @@
     font-style: italic;
     color: #fff;
 }
+
+.fill-remaining-space {
+    /* This fills the remaining space, by using flexbox. 
+       Every toolbar row uses a flexbox row layout. */
+    flex: 1 1 auto;
+  }
+
+  .user-details {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .title {
+    display: flex;
+    justify-content: center;
+  }
+
+.house-header{
+    height: 70px;
+    background-color: darksalmon;
+    color: darkslategray;
+    font-family: "Lucida Console", "Courier New", monospace;
+    font-size: 50px;
+}

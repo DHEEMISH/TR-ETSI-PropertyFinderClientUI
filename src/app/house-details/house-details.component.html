@@ -1,0 +1,33 @@
+<div class="example-card">
+    <mat-card>
+        <div class="house-header">
+        <div class="header-details">
+          <div class="card-title">{{houseDetails.title}}</div>
+          <div class="card-subtitle">{{houseDetails.description}}</div>
+        </div>
+        <!-- <div class="house-icon"> 
+          <mat-icon *ngIf="houseDetails.houseType == 'Villa'" aria-hidden="false" fontIcon="home"></mat-icon>
+          <mat-icon *ngIf="houseDetails.houseType == 'Apartment'" aria-hidden="false" fontIcon="eject"></mat-icon>
+          <mat-icon *ngIf="houseDetails.houseType == 'Office'" aria-hidden="false" fontIcon="opacity"></mat-icon>
+        </div> -->
+      </div>
+        <span class="house-cost">
+          <div class="house-cost-box box-border"><p class="house-cost-value">Rs.{{houseDetails.propertyCost}}</p><p *ngIf="houseDetails.propertyType == 'Rental'" class="house-cost-label">Rent</p><p *ngIf="houseDetails.propertyType == 'For Sale'" class="house-cost-label">Property Cost</p></div>
+          <div *ngIf="houseDetails.propertyType == 'Rental'" class="house-cost-box box-border"><p class="house-cost-value">Rs. {{houseDetails.deposit}}</p><p class="house-cost-label">Deposit</p></div>
+          <div *ngIf="houseDetails.propertyType == 'For Sale'" class="house-cost-box box-border"><p class="house-cost-value">Rs. {{houseDetails.downpayment}}</p><p class="house-cost-label">Downpayment</p></div>
+          <div class="house-cost-box"><p class="house-cost-value">{{houseDetails.builtup}}</p><p class="house-cost-label">Builtup</p></div>
+        </span>
+        <div class="third-block">
+        <div class="third-details"><img class="house-img" mat-card-image [src]="houseDetails.propImgUrl"></div>
+        <div class="third-details">
+          <div class="third-flat-details"><div class="third-flat-details-block block-label">Furnished</div><div class="third-flat-details-block block-value">{{houseDetails.furnished}}</div>  </div>
+          <div class="third-flat-details"><div class="third-flat-details-block block-label">Preferred Tenants</div><div class="third-flat-details-block block-value">{{houseDetails.preferredCustomer}} </div>  </div>
+          <div class="third-flat-details"><div class="third-flat-details-block block-label">Available From</div><div class="third-flat-details-block block-value">{{houseDetails.availableFrom | date}}</div>  </div>
+          <div class="third-flat-details"><div class="third-flat-details-block block-label">Owner</div><div class="third-flat-details-block block-value">{{houseDetails.houseOwnerName}}</div>  </div>
+          <div class="third-flat-details"><div class="third-flat-details-block block-label">Contact</div><div class="third-flat-details-block block-value">{{houseDetails.ownerContact}}</div>  </div>
+        </div>
+      </div>
+        <div>
+        </div>
+      </mat-card>
+    </div>

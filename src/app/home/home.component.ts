@@ -14,4 +14,9 @@ export class HomeComponent implements OnInit {
     this.homeText = "WELCOME TO Property Search CLIENT APP"
   }
 
+  public cities : string[] = [];
+  send(selectedCities: string[]){
+    this.cities = selectedCities;
+  }
+
 }
