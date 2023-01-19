@@ -34,17 +34,24 @@ import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import {MatButtonModule} from '@angular/material/button';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { FiltersComponent } from './filters/filters.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { SearchPropertyPipe } from './search-property.pipe';
+import { PleaseLoginComponent } from './please-login/please-login.component';
 export function tokenGetter() {
   return localStorage.getItem('token');
 }
 @NgModule({
-  declarations: [AppComponent, MenuComponent, HomeComponent, SearchBarComponent, HouseListComponent, HouseDetailsComponent, LandingPageComponent],
+  declarations: [AppComponent, MenuComponent, HomeComponent, SearchBarComponent, HouseListComponent, HouseDetailsComponent, LandingPageComponent, FiltersComponent, SearchPropertyPipe, PleaseLoginComponent],
   bootstrap: [AppComponent],
   imports: [
     BrowserModule,
     MatToolbarModule,
     MatMenuModule,
+    MatCheckboxModule,
     MatIconModule,
+    MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
     ReactiveFormsModule,

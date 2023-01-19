@@ -8,24 +8,30 @@ import { ConfigService } from '../config/config.service';
   styleUrls: ['./search-bar.component.css']
 })
 export class SearchBarComponent {
-  @Output() emitter:EventEmitter<string[]>
-       = new EventEmitter<string[]>();
+  @Output() emitter:EventEmitter<string[]> = new EventEmitter<string[]>();
+  @Output() searchEmitter: EventEmitter<string> = new EventEmitter<string>();
   constructor(
     private configService: ConfigService){
   }
   toppings = new FormControl('');
   selected: string[] = [];
+  searchModel: string = '';
   public cityList: any = [];
 
   ngOnInit(){
     this.configService.getCities().subscribe(
       res => {
         this.cityList = res;
-        console.log(res);
+        //console.log(res);
       }
     )
   }
   emit(selectedCities: string[]){
     this.emitter.emit(selectedCities);
+  }
+
+  search(searchText: string){
+    //console.log('Search bar Text ', searchText);
+    this.searchEmitter.emit(searchText);
   }
 }

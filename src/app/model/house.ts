@@ -7,6 +7,7 @@ export interface House {
     deposit?: string,
     downpayment?: string,
     builtup: string,
+    cityName: string,
     furnished: "Semi-furnished" | "Unfurnished" | "Fully-furnished",
     availableFrom: string,
     preferredCustomer: "All" | "Only-family" | "No-pets" | "No-Bachelors",

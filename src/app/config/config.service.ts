@@ -11,7 +11,7 @@ export class ConfigService {
     return this.http.get('https://tretsifindpropertyapi.azurewebsites.net/api/property/GetCity');
   }
 
-  public getPropertiesBySelectedCities(cities : string[]){
+  public getPropertiesBySelectedCities(cities : string[]): any{
     let headers = new HttpHeaders({
       'Content-Type': 'application/json' });
     return this.http.post('https://tretsifindpropertyapi.azurewebsites.net/api/property/GetPropertiesByCity', cities, { headers: headers});

@@ -6,10 +6,11 @@
     display: flex;
     flex-direction: row;
     padding: 10px;
+    justify-content: space-between;
   }
 
 .header-details{
-  width: 95%;
+  width: 80%;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
@@ -23,6 +24,28 @@
   padding-top: 5px;
   font-size: 12px;
   color: darkolivegreen;
+}
+
+.header-rent-banner{
+    border: 0.5px ridge lightgray;
+    border-radius: 2px;
+    color: cornsilk;
+    background-color: forestgreen;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 10px;
+    height: 30px;
+    padding: 5px;
+}
+
+.header-sale-banner{
+    border: 0.5px ridge lightgray;
+    border-radius: 2px;
+    color: black;
+    background-color: darkkhaki;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 10px;
+    height: 30px;
+    padding: 5px;
 }
 
 .house-icon{

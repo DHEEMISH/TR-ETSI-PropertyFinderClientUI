@@ -10,6 +10,6 @@ export class HouseDetailsComponent {
   @Input() houseDetails!: House;
 
   ngOnInit(){
-    console.log("House Details", this.houseDetails);
+    //console.log("House Details", this.houseDetails);
   }
 }

@@ -13,6 +13,6 @@
     </mat-form-field>
     <mat-form-field class="example-full-width">
         <mat-label>Search for Properties</mat-label>
-        <input matInput placeholder="Ex. Viman Nagar">
+        <input matInput placeholder="Ex. Viman Nagar" name="search" [(ngModel)]="searchModel" (keyup)="search(searchModel)">
       </mat-form-field>
     </form>

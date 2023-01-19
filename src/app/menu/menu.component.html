@@ -54,16 +54,8 @@
   <span class="fill-remaining-space title">House Search App
   </span>
   <span class="fill-remaining-space user-details">
-    <div>
-      <ul *ngIf='isUserAuthenticated'>
-        <li>
-          <a [routerLink]="['/authentication/registerPoperty']" routerLinkActive="active"
-            [routerLinkActiveOptions]="{exact: true}">Register</a>
-        </li>
-        <li>
-          <button class="btn btn-link" style="color: #0e020280;" (click)="logout()" [routerLink]="['/authentication/login'] " routerLinkActive="active"  [routerLinkActiveOptions]="{exact: true}" >Logout</button>
-        </li>
-      </ul>
+    <div *ngIf='isUserAuthenticated'>
+          <button (click)="logout()" [routerLink]="['/authentication/login'] " routerLinkActive="active"  [routerLinkActiveOptions]="{exact: true}" mat-button>Logout</button>
     </div>
   </span>
 </mat-toolbar>

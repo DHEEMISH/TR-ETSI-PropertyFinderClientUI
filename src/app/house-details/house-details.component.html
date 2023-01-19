@@ -5,6 +5,12 @@
           <div class="card-title">{{houseDetails.title}}</div>
           <div class="card-subtitle">{{houseDetails.description}}</div>
         </div>
+        <div *ngIf="houseDetails.propertyType == 'Rental'" class="header-rent-banner">
+            For Rent in {{houseDetails.cityName}}
+        </div>
+        <div *ngIf="houseDetails.propertyType == 'For Sale'" class="header-sale-banner">
+            For Sale in {{houseDetails.cityName}}
+        </div>
         <!-- <div class="house-icon"> 
           <mat-icon *ngIf="houseDetails.houseType == 'Villa'" aria-hidden="false" fontIcon="home"></mat-icon>
           <mat-icon *ngIf="houseDetails.houseType == 'Apartment'" aria-hidden="false" fontIcon="eject"></mat-icon>

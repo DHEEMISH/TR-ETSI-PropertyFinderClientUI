@@ -1,0 +1,15 @@
+.please-login {
+    width: 100%;
+    height: 100vh;
+    background-color: #4f334c;
+    color: antiquewhite;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 30px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.text{
+    padding: 10px;
+}

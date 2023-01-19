@@ -1,4 +1,8 @@
+<div *ngIf='isUserAuthenticated'>
 <app-menu></app-menu>
-<app-search-bar (emitter)="send($event)"></app-search-bar>
-<app-house-list class="house-details" [selectedCities]="cities">
+<app-search-bar (emitter)="send($event)" (searchEmitter)="searchProperty($event)"></app-search-bar>
+<app-filters (rentEmitter)="isRentalProperty($event)" (forSaleEmitter)="isSellableProperty($event)" (furnishedEmitter)="isFurnishedProperty($event)" (semiFurnishedEmitter)="isSemiFurnishedProperty($event)" (unFurnishedEmitter)="isUnFurnishedProperty($event)"></app-filters>
+<app-house-list class="house-details" [selectedCities]="cities" [onlyShowRented]="onlyShowRented" [onlyShowForSale]="onlyShowForSale" [furnished]="furnished" [semiFurnished]="semiFurnished" [unFurnished]="unFurnished" [searchText]="searchText">
 </app-house-list>
+</div>
+<div *ngIf='!isUserAuthenticated'><app-please-login></app-please-login></div>
