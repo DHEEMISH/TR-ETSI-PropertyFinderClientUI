@@ -1,5 +1,8 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../services/authentication.service';
+import { PropertyService } from '../services/property.service';
+import { GeoLocationDto } from '../_interfaces/response/geolocationDto.model';
 
 @Component({
   selector: 'app-home',
@@ -9,8 +12,10 @@ import { AuthenticationService } from '../services/authentication.service';
 export class HomeComponent implements OnInit {
   public homeText!: string;
   isUserAuthenticated: boolean = false;
+  lat!: number;
+  lng!: number;
 
-  constructor(private authService: AuthenticationService) { 
+  constructor(private authService: AuthenticationService,private propService:PropertyService) { 
     this.authService.authChanged
     .subscribe(res => {
       this.isUserAuthenticated = res;
@@ -60,4 +65,6 @@ export class HomeComponent implements OnInit {
     //console.log('home search ', searchText);
     this.searchText = searchText;
   }
+
+ 
 }

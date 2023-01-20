@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/36d3a4c2-9260-4708-9bb0-32457723f759/AppServices/subscriptions/36d3a4c2-9260-4708-9bb0-32457723f759/resourceGroups/TRETSIFindPropertyApi_group/providers/Microsoft.Web/sites/FindPropertyTRETSI",
+    "appService.deploySubpath": "dist"
+}
