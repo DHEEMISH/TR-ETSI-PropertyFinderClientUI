@@ -1,14 +1,20 @@
 .example-form {
-    width: 95%;
+    width: 100%;
     padding: 10px;
   }
 
   .example-full-width {
-    width: 80%;
+    width: 60%;
     padding-left: 20px;
   }
 
   .example-additional-selection {
     opacity: 0.75;
     font-size: 0.75em;
+  }
+
+  .addProperty{
+    padding: 30px 10px;
+    margin-left: 120px;
+    margin-top: -13px;
   }

@@ -17,6 +17,7 @@ export class RegisterUserComponent implements OnInit {
   registerForm!: FormGroup;
   public errorMessage: string = '';
   public showError: boolean = false;
+  public showMsg: boolean = false;
   constructor(private authService: AuthenticationService,private router: Router,
     private passConfValidator: PasswordConfirmationValidatorService) { }
 
@@ -54,8 +55,12 @@ export class RegisterUserComponent implements OnInit {
 
     this.authService.registerUser("api/users/Registration", user)
     .subscribe({
+      
      // next: (_: any) => console.log("Successful registration"),
-      next: (_) => this.router.navigate(["/home"]),
+      next: (_) => {
+        this.showMsg = true;
+        this.router.navigate(["/home"])
+      },
       error: (err: HttpErrorResponse) => {
         this.errorMessage = err.message;
         this.showError = true;

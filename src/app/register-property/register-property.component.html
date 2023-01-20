@@ -4,21 +4,36 @@
       <div class="col-12 col-lg-9 col-xl-7">
         <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
           <div class="card-body p-4 p-md-5">
-            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Add New Property </h3>
+            <h1 class="mb-4 pb-2 pb-md-0 mb-md-5">Add New Property </h1>
             <form [formGroup]="registerPropertyForm" autocomplete="off" novalidate
               (ngSubmit)="registerProperty(registerPropertyForm.value)">
+              <div class="col-md-6 mb-4">
 
+                <div class="form-outline ">
+                
+                  <input type="text" id="title" class="form-control form-control-lg"
+                    formControlName="title" placeholder="Property Title" style="margin-left: 140px; width: 100%;" />
+
+                  
+                </div>
+
+              </div>
               <div class="row">
                 <div class="col-md-6 mb-4">
 
                   <div class="form-outline">
                     <input type="text" id="description" class="form-control form-control-lg"
-                      formControlName="description" placeholder="Property Description" id="description" />
+                      formControlName="description" placeholder="Property Description" />
 
                     <label class="form-label" for="description">Description</label>
                   </div>
 
                 </div>
+                <!-- <div *ngIf="registerPropertyForm.controls['description'].invalid && (registerPropertyForm.controls['description'].dirty || registerPropertyForm.controls['useremail'].touched)" class="alert alert-danger">
+                  <div *ngIf="registerPropertyForm.controls['description'].errors?.['required']">
+                    Description is required.
+                  </div>
+              </div> -->
                 <div class="col-md-6 mb-4">
 
                   <div class="form-outline">
@@ -28,6 +43,11 @@
                   </div>
 
                 </div>
+                <!-- <div *ngIf="registerPropertyForm.controls['availableFrom'].invalid && (registerPropertyForm.controls['availableFrom'].dirty || registerPropertyForm.controls['useremail'].touched)" class="alert alert-danger">
+                  <div *ngIf="registerPropertyForm.controls['availableFrom'].errors?.['required']">
+                    Available From is required.
+                  </div>
+              </div> -->
               </div>
 
               <div class="row">
@@ -39,15 +59,21 @@
                     <label for="postedOn" class="form-label">Posted On</label>
                   </div>
                 </div>
+                <!-- <div *ngIf="registerPropertyForm.controls['postedOn'].invalid && (registerPropertyForm.controls['postedOn'].dirty || registerPropertyForm.controls['useremail'].touched)" class="alert alert-danger">
+                  <div *ngIf="registerPropertyForm.controls['postedOn'].errors?.['required']">
+                    Posted On is required.
+                  </div>
+              </div> -->
                 <div class="col-md-6 mb-4 d-flex align-items-center">
 
                   <div class="form-outline datepicker w-100">
                     <input type="text" class="form-control form-control-lg" id="propertyCost"
                       formControlName="propertyCost" placeholder="Property Cost" required="required"
-                      id="propertyCost" />
+                      id="propertyCost"  />
                     <label for="propertyCost" class="form-label">Property Cost</label>
                   </div>
                 </div>
+
               </div>
 
               <div class="row">
@@ -110,76 +136,83 @@
 
               </div>
               <div class="row">
-                <div class="col-md-6 mb-4 d-flex align-items-center">
+                <div class="col-md-6 mb-4">
 
-                  <div class="form-outline datepicker w-100">
-                    <input type="text" class="form-control form-control-lg" id="houseType"
-                      formControlName="houseOwnerName" placeholder="House Type" required="required" id="houseType" />
-                    <label for="houseType" class="form-label">House Type</label>
+                  <h4 class="mb-2 pb-1">Property Type </h4>
+                  <!-- (change)="changepropertyType($event)" -->
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="propertyType" id="rental" formControlName="propertyType" 
+                      value="Rental" (click)="togglecustomer()" />
+                    <label class="form-check-label" for="rental">Rental</label>
                   </div>
+                    
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio"  name="propertyType" id="forsale" formControlName="propertyType"
+                      value="For Sale" (click)="toggle()"/>
+                    <label class="form-check-label" for="forsale">For Sale</label>
+                  </div>
+
+            
                 </div>
                 <div class="col-md-6 mb-4">
 
                   <h4 class="mb-2 pb-1">Furnished </h4>
 
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio"   formControlName="furnished" name="inlineRadioOptions" id="furnishedyes"
-                      value="yes" checked  />
-                    <label class="form-check-label" for="furniashedyes">Yes</label>
+                    <input class="form-check-input" type="radio" name="furnished" id="semifurnished" formControlName="furnished"
+                      value="Semi-furnished"   />
+                    <label class="form-check-label" for="semifurnished">Semi-furnished</label>
                   </div>
 
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" formControlName="furnished" name="inlineRadioOptions" id="furniashedno"
-                      value="no" />
-                    <label class="form-check-label" for="furniashedno">No</label>
+                    <input class="form-check-input" type="radio"  name="furnished" id="unfurnished" formControlName="furnished"
+                      value="Unfurnished" />
+                    <label class="form-check-label" for="unfurnished">Unfurnished</label>
                   </div>
 
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio"  name="furnished" id="fullyfurniashedno" formControlName="furnished"
+                      value="Fully-furnished" />
+                    <label class="form-check-label" for="fullyfurniashedno">Fully-furnished</label>
+                  </div>
 
                 </div>
               </div>
-
+             
+              
               <div class="row">
                 <h4 class="mb-2 pb-1">Preferred City: </h4>
                 <div class="col-md-6 mb-4 d-flex align-items-center">  
                   
-                  <select class="select form-control-lg" required name="Cities">  
+                  <select class="select form-control-lg" required name="Cities" (change)="changeCity($event)">   
                       <option value="undefined">Select City</option>  
                       <option *ngFor="let city of cities"  
-                              [ngValue]="city">  
+                              [ngValue]="city.cityName">  
                           {{city.cityName}}  
                       </option>  
                   </select>  
                 </div>
-                <!-- <div class="col-md-6 mb-4 d-flex align-items-center">
-
-                  <select class="select form-control-lg">
-                    <option value="1" disabled>Select City</option>
-                    <option value="2">Pune</option>
-                    <option value="3">Hydrabad</option>
-                    <option value="4">Banglore</option>
-                  </select>
-
-                </div> -->
+               
                 <div class="col-md-6 mb-4">
 
                   <h4 class="mb-2 pb-1">Preferred Customer: </h4>
 
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="family"
-                      value="family" checked />
-                    <label class="form-check-label" for="family">Family</label>
+                    <input class="form-check-input" type="radio" name="preferredCustomer" id="nobachelors" formControlName="preferredCustomer"
+                      value="No-Bachelors"  />
+                    <label class="form-check-label" for="nobachelors">No-Bachelors</label>
                   </div>
 
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="bachelor"
-                      value="bachelor" />
-                    <label class="form-check-label" for="bachelor">Bachelor</label>
+                    <input class="form-check-input" type="radio" name="preferredCustomer" id="onlyfamily" formControlName="preferredCustomer"
+                      value="Only-family" />
+                    <label class="form-check-label" for="onlyfamily">Only-family</label>
                   </div>
 
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="any"
-                      value="any" />
-                    <label class="form-check-label" for="any">Any</label>
+                    <input class="form-check-input" type="radio" name="preferredCustomer" id="all" formControlName="preferredCustomer"
+                      value="All" />
+                    <label class="form-check-label" for="any">All</label>
                   </div>
 
 
@@ -187,11 +220,30 @@
               </div>
 
 
-
+              <div class="row">
               <div class="mt-4 pt-2">
                 <input class="btn btn-primary btn-lg" type="submit" value="Submit" [disabled]="!registerPropertyForm.valid"/>
               </div>
+              <div class="mt-4 pt-2"  >
+                <input class="btn btn-primary btn-lg" type="submit" value="Go Back" [routerLink]="['/home']"/>
+              </div>
+              </div>
+              <!-- <div class="mt-4 pt-2">
+                <p class="small fw-bold mt-2 pt-1 mb-0"><a href="#!" [routerLink]="['/authentication/login']"
+                  class="link-danger">Please click here to login!</a></p>
+              </div> -->
+              <div class="row"  *ngIf="showMsg">             
 
+                <div class="text-center text-lg-start mt-4 pt-2" *ngIf="showMsg">
+                  <p class="alert alert-success"  style="padding-left: 2.5rem; padding-right: 2.5rem;">
+                    <strong >Registration Success! </strong>                                        
+                </p>  
+                 
+                  <p class="small fw-bold mt-2 pt-1 mb-0"><a href="#!" [routerLink]="['/authentication/login']"
+                      class="link-danger">Please click here to login!</a></p>
+                </div>
+      
+              </div>
             </form>
           </div>
         </div>

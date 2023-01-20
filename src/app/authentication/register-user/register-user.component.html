@@ -84,6 +84,13 @@
                  <button type="submit"
                    class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
                </div>
+               <div class="row"  *ngIf="showMsg">             
+
+                <div class="text-center text-lg-start mt-4 pt-2" *ngIf="showMsg">
+                  <p class="alert alert-success"  style="padding-left: 2.5rem; padding-right: 2.5rem;">
+                    <strong >Registration Success! </strong>                                        
+                </p>  
+                </div></div>
 
                <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="#!" [routerLink]="['/authentication/login']"
                    class="fw-bold text-body"><u>Login here</u></a></p>

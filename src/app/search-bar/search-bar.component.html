@@ -15,4 +15,5 @@
         <mat-label>Search for Properties</mat-label>
         <input matInput placeholder="Ex. Viman Nagar" name="search" [(ngModel)]="searchModel" (keyup)="search(searchModel)">
       </mat-form-field>
+      <button class="addProperty" mat-button color="primary" (click)="addProperty()">Add Property</button>
     </form>

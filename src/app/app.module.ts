@@ -63,6 +63,7 @@ export function tokenGetter() {
     RouterModule.forRoot([
       { path: 'home', component: HomeComponent },
       { path: 'landing', component: LandingPageComponent},
+      { path: 'registerproperty', component: RegisterPropertyComponent},
       {
         path: 'authentication',
         loadChildren: () =>

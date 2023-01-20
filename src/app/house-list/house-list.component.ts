@@ -37,11 +37,38 @@ export class HouseListComponent {
       //console.log(res);
       //this.propertyList = res;
       let arr : any[] = [];
-      if(this.onlyShowRented && !this.furnished && !this.semiFurnished && !this.unFurnished){
-        //console.log('onlyShowRented ', this.onlyShowRented);
-      arr = [ ...arr, ...res.filter((obj: any)=> {
-        return obj.propertyType == 'Rental';
-      })];
+      if(this.onlyShowRented){
+       // if(!this.furnished && !this.semiFurnished && !this.unFurnished){
+          arr = [ ...arr, ...res.filter((obj: any)=> { 
+            return obj.propertyType == 'Rental' ;
+          })];
+        // } else if(this.furnished && !this.semiFurnished && !this.unFurnished){
+        //   arr = [ ...arr, ...res.filter((obj: any)=> { 
+        //     return obj.propertyType == 'Rental' && obj.furnished == 'Fully-furnished';
+        //   })];
+        // } else if(!this.furnished && this.semiFurnished && !this.unFurnished){
+        //   arr = [ ...arr, ...res.filter((obj: any)=> { 
+        //     return obj.propertyType == 'Rental' && obj.furnished == 'Semi-furnished';
+        //   })];
+        // } else if(!this.furnished && !this.semiFurnished && this.unFurnished){
+        //   arr = [ ...arr, ...res.filter((obj: any)=> { 
+        //     return obj.propertyType == 'Rental' && obj.furnished == 'Unfurnished';
+        //   })];
+        // } else if(!this.furnished && this.semiFurnished && this.unFurnished){
+        //   arr = [ ...arr, ...res.filter((obj: any)=> { 
+        //     return obj.propertyType == 'Rental' && (obj.furnished == 'Semi-furnished' || obj.furnished == 'Unfurnished');
+        //   })];
+        // } else if(this.furnished && !this.semiFurnished && this.unFurnished){
+        //   arr = [ ...arr, ...res.filter((obj: any)=> { 
+        //     return obj.propertyType == 'Rental' && (obj.furnished == 'Fully-furnished' || obj.furnished == 'Unfurnished');
+        //   })];
+        // } else if(this.furnished && this.semiFurnished && !this.unFurnished){
+        //   arr = [ ...arr, ...res.filter((obj: any)=> { 
+        //     return obj.propertyType == 'Rental' && (obj.furnished == 'Semi-furnished' || obj.furnished == 'Fully-furnished');
+        //   })];
+        // } else if(this.furnished && this.semiFurnished && this.unFurnished){
+        //   arr = [ ...arr];
+        // }
       }
 
       if(this.onlyShowForSale && !this.furnished && !this.semiFurnished && !this.unFurnished){
@@ -53,23 +80,23 @@ export class HouseListComponent {
 
       if(this.furnished){
         //console.log('furnished ', this.furnished);
-        if(!this.onlyShowRented && !this.onlyShowForSale){
+       // if(!this.onlyShowRented && !this.onlyShowForSale){
           arr = [ ...arr, ...res.filter((obj: any)=> {
             return obj.furnished == 'Fully-furnished';
           })];
-        } else if(this.onlyShowRented && !this.onlyShowForSale){
-          arr = [ ...arr, ...res.filter((obj: any)=> {
-            return obj.furnished == 'Fully-furnished' && obj.propertyType == 'Rental';
-          })];
-        } else if(!this.onlyShowRented && this.onlyShowForSale){
-          arr = [ ...arr, ...res.filter((obj: any)=> {
-            return obj.furnished == 'Fully-furnished' && obj.propertyType == 'For Sale';
-          })];
-        } else if(this.onlyShowRented && this.onlyShowForSale){
-          arr = [ ...arr, ...res.filter((obj: any)=> {
-            return obj.furnished == 'Fully-furnished' && obj.propertyType == 'For Sale' && obj.propertyType == 'For Sale';
-          })];
-        }
+        // } else if(this.onlyShowRented && !this.onlyShowForSale){
+        //   arr = [ ...arr, ...res.filter((obj: any)=> {
+        //     return obj.furnished == 'Fully-furnished' && obj.propertyType == 'Rental';
+        //   })];
+        // } else if(!this.onlyShowRented && this.onlyShowForSale){
+        //   arr = [ ...arr, ...res.filter((obj: any)=> {
+        //     return obj.furnished == 'Fully-furnished' && obj.propertyType == 'For Sale';
+        //   })];
+        // } else if(this.onlyShowRented && this.onlyShowForSale){
+        //   arr = [ ...arr, ...res.filter((obj: any)=> {
+        //     return obj.furnished == 'Fully-furnished' && obj.propertyType == 'For Sale' && obj.propertyType == 'For Sale';
+        //   })];
+        // }
         
       }
 

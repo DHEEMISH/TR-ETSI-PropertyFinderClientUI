@@ -5,6 +5,7 @@
     min-width: 100%;
     min-height: 100%;
     filter: brightness(50%);
+    object-fit: fill;
   }
 
   .tag {
@@ -30,6 +31,7 @@
 
  .login {
     margin-left: 200px;
+    color: #f9f9df;
  }
 
  .top-left {

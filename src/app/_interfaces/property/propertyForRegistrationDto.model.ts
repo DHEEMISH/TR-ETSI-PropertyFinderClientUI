@@ -1,5 +1,6 @@
 export interface PropertyRegistrationDto {
     description: string;
+    title: string,
     builtup: string;
     houseType: string;
     deposit: number;
@@ -12,5 +13,6 @@ export interface PropertyRegistrationDto {
     preferredCustomer: string;
     ownerContact:number;
     cityName:string;
+    propertyType: string,
     houseOwnerName: string;
 }

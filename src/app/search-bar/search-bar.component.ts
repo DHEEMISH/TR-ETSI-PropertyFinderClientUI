@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ConfigService } from '../config/config.service';
 
 @Component({
@@ -11,7 +12,7 @@ export class SearchBarComponent {
   @Output() emitter:EventEmitter<string[]> = new EventEmitter<string[]>();
   @Output() searchEmitter: EventEmitter<string> = new EventEmitter<string>();
   constructor(
-    private configService: ConfigService){
+    private configService: ConfigService, private router: Router){
   }
   toppings = new FormControl('');
   selected: string[] = [];
@@ -33,5 +34,9 @@ export class SearchBarComponent {
   search(searchText: string){
     //console.log('Search bar Text ', searchText);
     this.searchEmitter.emit(searchText);
+  }
+
+  addProperty(){
+    this.router.navigate(["/registerproperty"]);
   }
 }
