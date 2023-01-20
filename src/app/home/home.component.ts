@@ -23,12 +23,21 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    //this.homeText = "WELCOME TO Property Search CLIENT APP"
+  
     this.authService.authChanged
     .subscribe(res => {
       this.isUserAuthenticated = res;
     })
+    this.getGeolocationData()
+    this.getUserLocation()
   }
+
+  
+  ngOnChanges(){
+  this.getGeolocationData()
+    this.getUserLocation()
+  }
+    
 
   public cities : string[] = [];
   public searchText: string = '';
@@ -66,5 +75,41 @@ export class HomeComponent implements OnInit {
     this.searchText = searchText;
   }
 
- 
+  getUserLocation() {
+  
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        this.lat = position.coords.latitude;
+        this.lng = position.coords.longitude;       
+    
+        //this.getGeolocationData()
+      });
+    }
+    
+  }
+  getGeolocationData() {
+    const params={latitude: this.lat, longitude: this.lng}
+  
+    this.propService.GetGeoLocation(params).subscribe({
+      next: (result: GeoLocationDto) => {
+        console.log('Geoloc city ', result.city);
+        console.log("Before length", this.cities.length ,this.cities);
+        console.log('Geoloc cities ', this.cities.push(result.city));
+        console.log("After length", this.cities.length,this.cities);
+        const geolocation: GeoLocationDto = {
+          region: result.region,
+          city: result.city,
+        };
+    // this.cities=[JSON.parse(result.city)]  ;
+        console.log('result' , geolocation);
+    //    this.getpropertybyCityName(geolocation);
+      },
+      error: (err: HttpErrorResponse) => {
+        //this.errorMessage = err.message;
+        
+      }
+      
+    });
+  }
+
 }

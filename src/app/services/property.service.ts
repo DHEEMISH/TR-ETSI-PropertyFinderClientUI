@@ -7,6 +7,7 @@ import { RegistrationResponseDto } from '../_interfaces/response/registrationRes
 import { Router } from '@angular/router';
 import { PropertyRegistrationDto } from '../_interfaces/property/propertyForRegistrationDto.model';
 import { citydto } from '../_interfaces/property/cityDto';
+import { GeoLocationDto } from '../_interfaces/response/geolocationDto.model';
 
 @Injectable({
   providedIn: 'root',
@@ -15,6 +16,7 @@ export class PropertyService {
   private _isPropertyCreatedSubject = new BehaviorSubject<boolean>(false);
   isisPropertyCreated: Observable<boolean> =
     this._isPropertyCreatedSubject.asObservable();
+  api_key: string='9e19f5dc10114bf9a544b682a6afd273';
 
   constructor(
     private http: HttpClient,
@@ -45,6 +47,12 @@ export class PropertyService {
     );
   };
 
+  public GetGeoLocation = (route: any) => {
+    return this.http.get<GeoLocationDto>(          
+        this.envUrl.locationAddress + this.api_key,  
+      { params: route }
+    );
+  };
   private createCompleteRoute = (route: string, envAddress: string) => {
     return `${envAddress}/${route}`;
   };

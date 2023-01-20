@@ -7,5 +7,6 @@ import { environment } from '../environments/environment.prod';
 })
 export class EnvironmentUrlService {
   public urlAddress: string = environment.urlAddress;
+  public locationAddress: string = environment.locationAddress;
   constructor() { }
 }
